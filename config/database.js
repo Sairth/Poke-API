@@ -17,13 +17,17 @@ const sequelize = new Sequelize(process.env.DB_NAME,
 
 /*Caso tenha sucesso na conexão retorna uma mensagem positiva em relação a conexão,
 caso falhe retorna uma mensagem negativa e o erro ocorrido*/
-sequelize.authenticate()
-    .then(function() {
+async function connectToDatabase() {
+    try {
+        await sequelize.authenticate();
         console.log("Conectado com sucesso ao banco de dados pokedb");
-    })
-    .catch(function(erro) {
-        console.log("Falha ao se conectar ao banco de dados:", erro);
-    });
+    } catch (erro) {
+        console.error("Falha ao se conectar ao banco de dados:", erro);
+    }
+}
+
+connectToDatabase();
+
 
 //Exporta o sequelize para que seja usado em outro arquivo
 module.exports = sequelize;
