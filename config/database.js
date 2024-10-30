@@ -1,15 +1,16 @@
-const mysql = require('mysql2')
-require('dotenv').config()
+const Sequelize = require('sequelize');
 
-const connection = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-    port: process.env.DB_PORT
-})
+const sequelize = new Sequelize('pokedb', 'root', '', {
+    host: "localhost",
+    dialect: 'mysql'
+});
 
-connection.connect((err)=>{
-    if(err)throw err
-    console.log('Conectado ao banco de dados sql PokeDB!')
-})
+sequelize.authenticate()
+    .then(function() {
+        console.log("Conectado com sucesso ao banco de dados pokedb");
+    })
+    .catch(function(erro) {
+        console.log("Falha ao se conectar ao banco de dados:", erro); // Corrigido o operador de concatenação
+    });
+
+module.exports = sequelize;
