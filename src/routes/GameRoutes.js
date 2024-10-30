@@ -21,5 +21,5 @@ router.get('/release/:release', GameController.getgamebyreleasedate)
 //Adquire jogos com base na região que se passa
 router.get('/region/:region', GameController.getgamebyregion)
 
-//Exporta o objeto para que seja utilizado no index
+//Exporta o objeto para que seja utilizado no app
 module.exports = router;
