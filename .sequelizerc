@@ -3,5 +3,5 @@ module.exports = {
     config: path.resolve(__dirname,'config', 'sequelizedb.js'),
     'models-path': path.resolve('models'),
     'migrations-path': path.resolve(__dirname, 'migrations'),
-    'seeders-path': path.resolve('seeders')
+    'seeders-path': path.resolve(__dirname,'seeders')
 }
