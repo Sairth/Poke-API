@@ -4,14 +4,16 @@
   "description": "Projeto de api",
   "main": "app.js",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "start": "nodemon src/index.js",
+    "dev": "nodemon src/index.js",
+    "database": "nodemon config/database.js"
   },
   "author": "Arthur de Aquino",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
+    "mariadb": "^3.4.0",
     "mysql2": "^3.11.3",
     "nodemon": "^3.1.7",
     "sequelize": "^6.37.5"

@@ -6,7 +6,8 @@ require('dotenv').config()
 
 /*Estabelece uma conexão com o banco de dados inserido no arquivo .env 
 com as especificações necessarias*/ 
-const sequelize = new Sequelize(process.env.DB_NAME,
+const sequelize = new Sequelize(
+    process.env.DB_NAME,
     process.env.DB_USER,
     process.env.DB_PASSWORD,
     {
