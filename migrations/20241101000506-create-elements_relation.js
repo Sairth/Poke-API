@@ -30,6 +30,10 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       },
+      relation: {
+        type: Sequelize.STRING(45), // Adicionando a nova coluna relation
+        allowNull: false,            // Definindo como não nula
+      },
       createdAt: {
         type: Sequelize.DATE,
         allowNull: false,
@@ -44,6 +48,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('ElementsRelation');
+    await queryInterface.dropTable('Elements_Relation');
   },
 };
