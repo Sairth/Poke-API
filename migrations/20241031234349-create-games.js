@@ -18,7 +18,7 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: true,
       },
-      lancamento: {
+      release: {
         type: Sequelize.DATEONLY,
         allowNull: true,
       },

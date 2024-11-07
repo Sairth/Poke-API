@@ -20,7 +20,7 @@ module.exports = {
       },
       teacher: {
         type: Sequelize.STRING(45),
-        allowNull: true,
+        allowNull: false,
       },
       createdAt: {
         type: Sequelize.DATE,
