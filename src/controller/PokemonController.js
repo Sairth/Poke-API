@@ -1,15 +1,28 @@
-const getpokemon = (req, res) => {
-    res.json([
-        {id:1, nome:'Bulbassauro', elemento: ['Planta', 'Venenoso']},
-        {id:2, nome:'Ivyssauro', elemento: ['Planta', 'Venenoso']},
-        {id:3, nome:'Venossauro', elemento:['Planta', 'Venenoso']},
-        {id: 4, nome: 'Charmander', elemento: ['Fogo']}
-    ])
+const {Pokemon} = require('../models/PokemonModel')
+
+const getpokemon = async (req, res) => {
+    try {
+        const pokemon = await Pokemon.findAll()
+        res.json(pokemon)
+    } catch (error) {
+        res.status(500).json({ error: 'Erro ao acessar a acessar os Pokemon' })
+    }
 }
 
-const getpokemonbyid = (req, res) => {
+const getpokemonbyid = async (req, res) => {
     const id = req.params.id
-    res.json({id, nome: `Pokemon ${id}`})
+    try {
+        const pokemon = await Pokemon.findByPk(id)
+        if (pokemon) {
+            res.json(pokemon)
+        } else {
+            res.status(404).json({ error: 'Pokemon não encontrado' })
+        }
+    } catch (error) {
+        res.status(500).json({ error: 'Error ao acessar o Pokemon' })
+    }
 }
+
+
 
 module.exports = {getpokemon, getpokemonbyid}
