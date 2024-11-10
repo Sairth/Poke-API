@@ -28,7 +28,7 @@ router.get('/generation/:generation', PokemonController.getpokemonbygeneration)
 router.get('/element/:element', PokemonController.getpokemonbyelement)
 
 //Aquire um pokemon por elemento e sua classficação 
-router.get('/element/:element/:classfication', PokemonController.getpokemonelementbyclassfication)
+router.get('/element/:element/:classification', PokemonController.getpokemonelementbyclassification)
 
 //Exporta o objeto para que seja utilizado no index
 module.exports = router;

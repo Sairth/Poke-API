@@ -37,7 +37,7 @@ module.exports = (sequelize) => {
                 type: DataTypes.INTEGER,
                 allowNull: true,
                 references: {
-                    model: 'RegionsModel',
+                    model: 'Regions',
                     key: 'id',
                 }
             },
@@ -45,7 +45,7 @@ module.exports = (sequelize) => {
                 type: DataTypes.INTEGER,
                 allowNull: true,
                 references: {
-                    model: 'GenerationsModel',
+                    model: 'Generations',
                     key: 'id',
                 }
             },
