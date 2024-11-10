@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon src/app.js",
     "dev": "nodemon src/app.js",
-    "database": "nodemon config/database.js"
+    "database": "nodemon src/database/dataindex.js"
   },
   "author": "Arthur de Aquino",
   "license": "ISC",
