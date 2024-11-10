@@ -1,25 +1,25 @@
-//Importa e armazena a biblioteca do express em uma constante
-const express = require('express')
+// //Importa e armazena a biblioteca do express em uma constante
+// const express = require('express')
 
-//Cria uma instancia de roteador no express e armazena na constante
-const router = express.Router()
+// //Cria uma instancia de roteador no express e armazena na constante
+// const router = express.Router()
 
-//Importa o controlador e suas funções, armazenando-os em uma constante
-const GameController = require('../controller/GameController')
+// //Importa o controlador e suas funções, armazenando-os em uma constante
+// const GameController = require('../controller/GameController')
 
-//Rotas para o gerenciamento dos jogos da franquia
+// //Rotas para o gerenciamento dos jogos da franquia
 
-//Adquire todos os jogos
-router.get('/', GameController.getgames)
+// //Adquire todos os jogos
+// router.get('/', GameController.getgames)
 
-//Adquire um jogo espefico com base no id
-router.get('/:id', GameController.getgamebyid)
+// //Adquire um jogo espefico com base no id
+// router.get('/:id', GameController.getgamebyid)
 
-//Adquire jogos com base na data de lançamento
-router.get('/release/:release', GameController.getgamebyreleasedate)
+// //Adquire jogos com base na data de lançamento
+// router.get('/release/:release', GameController.getgamebyreleasedate)
 
-//Adquire jogos com base na região que se passa
-router.get('/region/:region', GameController.getgamebyregion)
+// //Adquire jogos com base na região que se passa
+// router.get('/region/:region', GameController.getgamebyregion)
 
-//Exporta o objeto para que seja utilizado no app
-module.exports = router;
+// //Exporta o objeto para que seja utilizado no app
+// module.exports = router;
