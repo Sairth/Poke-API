@@ -9,22 +9,22 @@ const port = 3000
 
 //busca o arquivo das rotas e armazena em constantes
 const PokemonRoutes = require("./routes/PokemonRoutes")
-const ElementRoutes = require("./routes/ElementRoutes")
-const GameRoutes = require("./routes/GameRoutes")
-const GenerationRoutes = require("./routes/GenerationRoutes")
-const GymRoutes = require("./routes/GymRoutes")
-const RegionRoutes = require("./routes/RegionRoutes")
+// const ElementRoutes = require("./routes/ElementRoutes")
+// const GameRoutes = require("./routes/GameRoutes")
+// const GenerationRoutes = require("./routes/GenerationRoutes")
+// const GymRoutes = require("./routes/GymRoutes")
+// const RegionRoutes = require("./routes/RegionRoutes")
 
 //Permite com que a aplicação interprete o corpo das requisições em formato json automaticamente
 app.use(express.json())
 
 //Define o inicio de cada rota
 app.use('/pokemon', PokemonRoutes)
-app.use('/element', ElementRoutes)
-app.use('/game', GameRoutes)
-app.use('/generation', GenerationRoutes)
-app.use('/gym', GymRoutes)
-app.use('/region', RegionRoutes)
+// app.use('/element', ElementRoutes)
+// app.use('/game', GameRoutes)
+// app.use('/generation', GenerationRoutes)
+// app.use('/gym', GymRoutes)
+// app.use('/region', RegionRoutes)
 
 //Inicia o servidor na porta 3000
 app.listen(port, () => {
