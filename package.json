@@ -2,10 +2,10 @@
   "name": "poke-api",
   "version": "1.0.0",
   "description": "Projeto de api",
-  "main": "app.js",
+  "main": "src/app.js",
   "scripts": {
-    "start": "nodemon src/index.js",
-    "dev": "nodemon src/index.js",
+    "start": "nodemon src/app.js",
+    "dev": "nodemon src/app.js",
     "database": "nodemon config/database.js"
   },
   "author": "Arthur de Aquino",
