@@ -129,24 +129,20 @@ const getpokemonelementbyclassification = async (req, res) => {
     }
 
     try {
-        // Busca todos os registros na tabela de relacionamento `pokemon_elements`
-        // onde `element` e `classification` correspondem aos valores fornecidos
         const relatedPokemonIds = await PokemonElements.findAll({
             where: {
                 element: elementId,
                 classification: classification
             },
-            attributes: ['pokemon'], // Seleciona apenas o ID do Pokémon
+            attributes: ['pokemon'],
         })
 
-        // Extrai os IDs dos Pokémon dos resultados
         const pokemonIds = relatedPokemonIds.map(record => record.pokemon)
 
         if (pokemonIds.length === 0) {
             return res.status(404).json({ error: 'Nenhum Pokémon encontrado com esse elemento e classificação' })
         }
 
-        // Busca os Pokémon na tabela `Pokemon` cujos IDs estão na lista de `pokemonIds`
         const pokemons = await Pokemon.findAll({
             where: {
                 id: pokemonIds
