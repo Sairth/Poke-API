@@ -19,7 +19,7 @@ const getgamebyid = async(req, res) =>{
         return res.status(400).json({error: 'O id do jogo é um parâmetro obrigatório!'})
     }
     try{
-        const game = await games.findByPk()
+        const game = await games.findByPk(id)
         if(!game){
             return res.status(404).json({error: 'Jogo não encontrado!'})
         }
