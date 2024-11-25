@@ -3,9 +3,14 @@
 const {Model, DataTypes} = require('sequelize')
 
 module.exports = (sequelize) => {
-    class Elements extends Model {}
-        Elements.init({
-            id: {
+    class Elements extends Model {
+        static associate(models) {
+            // Não precisa de associações aqui, já que é unidirecional
+        }
+    }
+    
+    Elements.init({
+        id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true,
@@ -29,12 +34,12 @@ module.exports = (sequelize) => {
             allowNull: false,
             defaultValue: DataTypes.NOW,
         },
-        },{
-            sequelize,
-            modelName: 'Elements',
-            tableName: 'Elements',
-            timestamps: true,
-        }
-    )
-    return Elements
+    }, {
+        sequelize,
+        modelName: 'Elements',
+        tableName: 'elements',
+        timestamps: true,
+    });
+    
+    return Elements;
 }

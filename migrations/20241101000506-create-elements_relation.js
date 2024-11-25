@@ -3,7 +3,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Elements_Relation', {
+    await queryInterface.createTable('elements_relation', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -14,8 +14,8 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'Elements', // Nome da tabela referenciada
-          key: 'id',          // Coluna referenciada
+          model: 'elements',
+          key: 'id',
         },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
@@ -24,15 +24,15 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'Elements', // Nome da tabela referenciada
-          key: 'id',          // Coluna referenciada
+          model: 'elements',
+          key: 'id',
         },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       },
       relation: {
-        type: Sequelize.STRING(45), // Adicionando a nova coluna relation
-        allowNull: false,            // Definindo como não nula
+        type: Sequelize.STRING(45),
+        allowNull: false,
       },
       createdAt: {
         type: Sequelize.DATE,
@@ -48,6 +48,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Elements_Relation');
+    await queryInterface.dropTable('elements_relation');
   },
 };
