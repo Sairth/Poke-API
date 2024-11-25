@@ -159,6 +159,33 @@ const getpokemonelementbyclassification = async (req, res) => {
     }
 }
 
+const createpokemon = async (req, res) => {
+    const { name, description, rarity, stage, region, generation, weight, height } = req.body;
+
+
+    if (!name || !description || !rarity || stage === undefined || !weight || !height) {
+        return res.status(400).json({ error: 'Todos os campos obrigatórios devem ser preenchidos' });
+    }
+
+    try {
+        const newPokemon = await Pokemon.create({
+            name,
+            description,
+            rarity,
+            stage,
+            region,
+            generation,
+            weight,
+            height,
+        });
+
+        return res.status(201).json(newPokemon);
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ error: 'Ocorreu um erro ao criar o Pokémon' });
+    }
+}
+
 
 
 module.exports = {
@@ -168,5 +195,6 @@ module.exports = {
     getpokemonbyregion,
     getpokemonbygeneration,
     getpokemonbyelement,
-    getpokemonelementbyclassification
+    getpokemonelementbyclassification,
+    createpokemon
 }

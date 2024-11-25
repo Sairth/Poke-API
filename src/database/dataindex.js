@@ -12,6 +12,8 @@ const pokemon = require('../models/PokemonModel')(conection)
 const pokemon_elements = require('../models/PokemonElementsModel')(conection)
 const element = require('../models/ElementsModel')(conection)
 const element_relations = require('../models/ElementsRelationModel')(conection)
+const games = require('../models/GamesModel')(conection)
+const user = require('../models/UserModel')(conection)
 
 /*Caso tenha sucesso na conexão retorna uma mensagem positiva em relação a conexão,
 caso falhe retorna uma mensagem negativa e o erro ocorrido*/

@@ -3,7 +3,9 @@
 const {Model,DataTypes} = require('sequelize')
 
 module.exports = (sequelize) => {
-    class Games extends Model{}
+    class Games extends Model{
+        static associate(models){}
+    }
         Games.init({
             id: {
                 type: DataTypes.INTEGER,
