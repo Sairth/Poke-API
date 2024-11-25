@@ -1,10 +1,11 @@
 const {json, where} = require('sequelize')
 const conection = require('../database/dataindex')
 const games = require('../models/GamesModel')(conection)
+const region_game = require('../models/RegionsGameModel')(conection)
 
 const getgames = async(req, res) => {
     try{
-        const allgames = games.findAll()
+        const allgames = await games.findAll()
         return res.status(200).json(allgames)
     }catch(error){
         console.log(error)
@@ -18,7 +19,7 @@ const getgamebyid = async(req, res) =>{
         return res.status(400).json({error: 'O id do jogo é um parâmetro obrigatório!'})
     }
     try{
-        const game = games.findByPk()
+        const game = await games.findByPk()
         if(!game){
             return res.status(404).json({error: 'Jogo não encontrado!'})
         }
@@ -39,7 +40,7 @@ const getgamebyreleasedate = async(req, res) =>{
     const release = new Date(releaseraw);
 
     try{
-        const game = games.findAll({where: {release:release}})
+        const game = await games.findAll({where: {release:release}})
         if(game.length === 0){
             return res.status(404).json({error: 'Nenhum jogo lançado nesta data'})
         }
@@ -56,12 +57,13 @@ const getgamebyregion = async(req, res) =>{
         return res.status(400).json({error: 'O id da região é um parâmetro obrigatório'})
     }
     try{
-        const game = games.findAll({where: {region:region}})
+        const game = await region_game.findAll({where: {region:region}})
         if(game.length === 0){
             return res.status(404).json({error: 'nenhum jogo encontrado nesta região'})
         }
         return res.status(200).json(game)
     }catch(error){
+        console.log(error)
         return res.status(500).json({error: 'Falha ao se comunicar com o banco de dados'})
     }
 }
