@@ -14,7 +14,7 @@ const GameRoutes = require("./routes/GameRoutes")
 const ProtectedRoutes = require("./routes/ProtectedRoutes")
 const UserRoutes = require("./routes/UserRoutes")
 const GenerationRoutes = require("./routes/GenerationRoutes")
-// const GymRoutes = require("./routes/GymRoutes")
+const GymRoutes = require("./routes/GymRoutes")
 const RegionRoutes = require("./routes/RegionRoutes")
 
 //Permite com que a aplicação interprete o corpo das requisições em formato json automaticamente
@@ -27,7 +27,7 @@ app.use('/game', GameRoutes)
 app.use('/protected', ProtectedRoutes)
 app.use('/auth', UserRoutes)
 app.use('/generation', GenerationRoutes)
-// app.use('/gym', GymRoutes)
+app.use('/gym', GymRoutes)
 app.use('/region', RegionRoutes)
 
 //Inicia o servidor na porta 3000
