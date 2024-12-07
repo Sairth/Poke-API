@@ -3,9 +3,9 @@ const conection = require('../database/dataindex')
 const Elements = require('../models/ElementsModel')(conection)
 const ElementsRelation = require('../models/ElementsRelationModel')(conection)
 
-const getallelements = async(res) =>{
+const getallelements = async(req, res) =>{
     try{
-        const elements = await Element.findAll()
+        const elements = await Elements.findAll()
         return res.status(200).json(elements)
     }catch(error){
         console.log(error)
