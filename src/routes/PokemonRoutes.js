@@ -15,7 +15,7 @@ router.get('/', PokemonController.getallpokemon)
 //Adquire um pokemon especifico por id
 router.get('/:pokemon', PokemonController.getpokemonbyid)
 
-//Adquire pokemon por raridade
+//Adquire pokemon por raridade(Exemplos de raridade = Comum, Raro, Lendario)
 router.get('/rarity/:rarity', PokemonController.getpokemonbyrarity)
 
 //Aquire pokemon por região
@@ -24,7 +24,7 @@ router.get('/region/:region', PokemonController.getpokemonbyregion)
 //Adiquire pokemon por geração
 router.get('/generation/:generation', PokemonController.getpokemonbygeneration)
 
-//Aquire pokemon por id
+//Aquire pokemon por id do elemento
 router.get('/element/:element', PokemonController.getpokemonbyelement)
 
 //Aquire um pokemon por elemento e sua classficação 

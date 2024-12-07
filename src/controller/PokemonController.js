@@ -6,10 +6,10 @@ const PokemonElements = require ('../models/PokemonElementsModel')(conection)
 const getallpokemon = async (req, res) => {
     try {
         const pokemon = await Pokemon.findAll()
-        res.json(pokemon)
+        return res.json(pokemon)
     } catch (error) {
         console.log(error)
-        res.status(500).json({error: 'Ocorreu um erro ao acessar os pokemon'})
+        return res.status(500).json({error: 'Ocorreu um erro ao acessar os pokemon'})
     }
 }
 
@@ -21,13 +21,13 @@ const getpokemonbyid = async (req, res) => {
     try {
         const pokemon = await Pokemon.findByPk(id)
         if (pokemon) {
-            res.json(pokemon)
+            return res.json(pokemon)
         } else {
-            res.status(404).json({ error: 'Pokemon não encontrado' })
+            return res.status(404).json({ error: 'Pokemon não encontrado' })
         }
-    } catch (error) {
+    } catch (error) {  
         console.log(error)
-        res.status(500).json({ error: 'Ocorreu um erro ao acessar o pokemon' })
+        return res.status(500).json({ error: 'Ocorreu um erro ao acessar o pokemon' })
     }
 }
 
@@ -76,13 +76,14 @@ const getpokemonbygeneration = async(req,res) => {
         return res.status(400).json({error: 'O id da geração é obrigatório!'})
     }
     try{
-        const pokemon = await pokemon({where: {generation:generation}})
+        const pokemon = await Pokemon.findAll({where: {generation:generation}})
         if(pokemon.length > 0){
-            res.status(200).json(pokemon)
+            return res.status(200).json(pokemon)
         }else{
             return res.status(404).json({error: 'Nenhum Pokemon encontrado desta geração'})
         }
     }catch(error){
+        console.log(error)
         return res.status(500).json({error: 'Ocorreu um erro ao se comunicar com o banco de dados'})
     }
 }
