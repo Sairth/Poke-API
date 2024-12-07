@@ -30,14 +30,13 @@ const getgamebyid = async(req, res) =>{
 }
 
 const getgamebyreleasedate = async(req, res) =>{
-    const releaseraw = req.params.release
-    if (isNaN(Date.parse(releaseraw))) {
+    const release = req.params.release
+    if (isNaN(Date.parse(release))) {
         return res.status(400).json({ error: 'Data inválida' });
     }
-    if(!releaseraw){
+    if(!release){
         return res.status(400).json({error: 'A data de lançamento é um parametro obrigatório'})
     }
-    const release = new Date(releaseraw);
 
     try{
         const game = await games.findAll({where: {release:release}})
